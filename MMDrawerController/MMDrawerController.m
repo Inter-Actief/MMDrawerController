@@ -782,8 +782,16 @@ static NSString *MMDrawerOpenSideKey = @"MMDrawerOpenSide";
     }
 }
 
+-(NSUInteger)supportedInterfaceOrientations {
+    return self.centerViewController.supportedInterfaceOrientations;
+}
+
+-(UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
+    return self.centerViewController.preferredInterfaceOrientationForPresentation;
+}
+
 -(BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation{
-    return YES;
+    return [self.centerViewController shouldAutorotateToInterfaceOrientation:toInterfaceOrientation];
 }
 
 -(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation{
